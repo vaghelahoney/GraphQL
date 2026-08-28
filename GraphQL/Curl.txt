@@ -1,0 +1,39 @@
+﻿1. GET ALL
+POST https://localhost:7025/graphql
+{
+  "query": "query { employees { id name email mobile isActive gender createdDate price tenantId } }"
+}
+
+2. GET BY ID
+POST https://localhost:7025/graphql
+{
+  "query": "query { employee(id: 1) { id name email mobile isActive gender createdDate price tenantId } }"
+}
+
+3. CREATE
+POST https://localhost:7025/graphql
+{
+  "query": "mutation { createEmployee(input: { name: \"Honey\", email: \"honey@gmail.com\", mobile: \"9876543210\", isActive: true, gender: \"Male\", createdDate: \"2026-08-28T00:00:00Z\", price: 50000, tenantId: \"00000000-0000-0000-0000-000000000001\" }) { id name email mobile isActive gender createdDate price tenantId } }"
+}
+
+4. UPDATE
+POST https://localhost:7025/graphql
+{
+  "query": "mutation { updateEmployee(id: 1, input: { name: \"Honey Patel\", email: \"honey@gmail.com\", mobile: \"9876543210\", isActive: true, gender: \"Male\", createdDate: \"2026-08-28T00:00:00Z\", price: 60000, tenantId: \"00000000-0000-0000-0000-000000000001\" }) { id name email mobile isActive gender createdDate price tenantId } }"
+}
+
+5. DELETE
+POST https://localhost:7025/graphql
+{
+  "query": "mutation { deleteEmployee(id: 1) }"
+}
+
+Important
+
+Agar tum actual REST-style URLs chahte ho:
+
+GET    /api/employee
+GET    /api/employee/1
+POST   /api/employee
+PUT    /api/employee/1
+DELETE /api/employee/1
